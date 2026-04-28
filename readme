@@ -1,0 +1,70 @@
+# 🎭 Playwright + Cucumber BDD Framework
+
+A practice-based test automation framework built with **Playwright** and **Cucumber BDD** using **JavaScript (ESM)**.
+
+> ⚠️ This framework is NOT an end-to-end application test suite.
+> It is a **learning-focused** implementation covering individual UI interaction scenarios to build strong Playwright fundamentals.
+
+---
+
+## 🛠️ Tech Stack
+
+| Tool | Purpose |
+|---|---|
+| [Playwright](https://playwright.dev/) | Browser automation |
+| [Cucumber BDD](https://cucumber.io/) | Gherkin feature files + step definitions |
+| JavaScript (Module) | Language — using `import` throughout |
+| Node `assert` | Built-in assertions — no extra libraries |
+| Cucumber HTML Reporter | Auto-generated local HTML report |
+
+## ⚙️ Setup and Installation
+
+**1. Clone the repository**
+```bash
+git clone [your repo link]
+cd playwright-bdd-framework
+```
+
+**2. Install dependencies**
+```bash
+npm install
+```
+
+**3. Install Playwright browsers**
+```bash
+npx playwright install
+```
+
+---
+
+## ▶️ Running Tests
+
+**Run all scenarios:**
+```bash
+npm test
+```
+
+**Run by tag:**
+```bash
+npx cucumber-js --tags "@input"
+npx cucumber-js --tags "@dropdown"
+npx cucumber-js --tags "@radiobutton"
+```
+
+**Run with HTML report:**
+```bash
+npm run test:report
+```
+
+---
+
+## 📊 Reports
+
+After every run an HTML report is auto-generated at:
+```
+reports/cucumber-report.html
+```
+Open it in any browser to view results.
+
+**[Ganesh Rasal]**
+Follow my daily Playwright vs Selenium series on LinkedIn → [www.linkedin.com/in/ganesh-rasal-0b1b4319a]
