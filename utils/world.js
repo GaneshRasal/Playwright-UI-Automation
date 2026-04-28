@@ -1,11 +1,12 @@
-import { setWorldConstructor } from "@cucumber/cucumber";
+import { setWorldConstructor, World } from '@cucumber/cucumber';
 
-class CustomWorld{
-    constructor(){
-        this.browser=null;
-        this.context=null;
-        this.page=null;
-    }
+class CustomWorld extends World {
+  constructor(options) {
+    super(options);
+    this.browser = null;
+    this.context = null;
+    this.page = null;
+  }
 }
 
 setWorldConstructor(CustomWorld);
