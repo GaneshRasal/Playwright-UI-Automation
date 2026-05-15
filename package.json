@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "cucumber-js --tags \"@input\"",
     "test:smoke": "cucumber-js --tags \"@smoke\"",
     "test:regression": "cucumber-js --tags \"@regression\"",
     "test:parallel": "cucumber-js --parallel 2",
-    "test:headed": "cucumber-js --world-parameters '{\"headless\": false}'"
+    "test:headed": "cucumber-js --world-parameters '{\"headless\": false}'",
+    "test": "cucumber-js --format summary --format json:reports/cucumber_report.json --tags",
+   "report": "node generate-report.js",
+    "test:report": "npm run test & npm run report"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^12.8.2",
-    "cucumber-html-reporter": "^7.2.0"
+    "cucumber-html-reporter": "^6.0.0",
+    "multiple-cucumber-html-reporter": "^3.10.0"
   },
   "dependencies": {
     "@playwright/test": "^1.59.1"
