@@ -1,12 +1,6 @@
 import {Given, When, Then} from '@cucumber/cucumber';
 import assert from 'assert';
 
-// ─── Background ───────────────────────────────────────────────────────────────
-
-Given('I open the browser and go to {string}', async function (url) {
-  await this.page.goto(url);
-});
-
 // ─── Input Steps ───────────────────────────────────────────────────────────────
 
 // The page has label text: "Input: Number", "Input: Text", "Input: Password", "Input: Date"
