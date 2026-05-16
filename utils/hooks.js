@@ -3,7 +3,7 @@ import { chromium } from 'playwright';
 
 setDefaultTimeout(60000);
 Before(async function () {
-  this.browser = await chromium.launch({ headless: false });
+  this.browser = await chromium.launch({ headless: true });
   this.context = await this.browser.newContext();
   this.page = await this.context.newPage();
 });

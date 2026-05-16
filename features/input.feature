@@ -1,4 +1,4 @@
-@input
+@input @ui
 Feature: Input Field Interactions
   As a QA Engineer
   I want to interact with various input fields

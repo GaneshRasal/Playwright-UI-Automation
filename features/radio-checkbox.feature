@@ -1,4 +1,4 @@
-@radio-checkbox
+@radio-checkbox @ui
 Feature: Radio Button and Checkbox Interactions
   As a QA Engineer
   I want to interact with various radio buttons and checkboxes
