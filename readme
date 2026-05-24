@@ -1,70 +1,87 @@
-# 🎭 Playwright + Cucumber BDD Framework
+PLAYWRIGHT + CUCUMBER BDD FRAMEWORK
+A highly structured, practice-based test automation framework engineered with Playwright and Cucumber BDD using modern JavaScript (ES Modules) syntax.
 
-A practice-based test automation framework built with **Playwright** and **Cucumber BDD** using **JavaScript (ESM)**.
+FRAMEWORK SCOPE
+This repository is a learning-focused implementation dedicated to isolating and mastering complex UI interaction paradigms, event handling, and custom framework architecture. It is designed to bridge the gap between basic script writing and enterprise-grade automation foundations.
 
-> ⚠️ This framework is NOT an end-to-end application test suite.
-> It is a **learning-focused** implementation covering individual UI interaction scenarios to build strong Playwright fundamentals.
+TECH STACK & KEY INTEGRATIONS
+Playwright: High-performance, cross-browser engine for modern web automation.
 
----
+Cucumber BDD: Gherkin-driven workflow bridging readable business requirements and test step definitions.
 
-## 🛠️ Tech Stack
+JavaScript (ESM): Utilizes native ECMAScript Modules (import/export) for modern, modular clean code syntax.
 
-| Tool | Purpose |
-|---|---|
-| [Playwright](https://playwright.dev/) | Browser automation |
-| [Cucumber BDD](https://cucumber.io/) | Gherkin feature files + step definitions |
-| JavaScript (Module) | Language — using `import` throughout |
-| Node `assert` | Built-in assertions — no extra libraries |
-| Cucumber HTML Reporter | Auto-generated local HTML report |
+Winston: Centralized asynchronous enterprise logging framework with strict severity handling.
 
-## ⚙️ Setup and Installation
+Cucumber HTML Reporter: Auto-generated, interactive dashboard reporting with automated runtime artifact binding.
 
-**1. Clone the repository**
-```bash
-git clone [your repo link]
-cd playwright-bdd-framework
-```
+ARCHITECTURE & DIRECTORY LAYOUT
+cucumber.js: Global Cucumber-JS runner profile configurations
 
-**2. Install dependencies**
-```bash
-npm install
-```
+generate-report.js: Post-execution parsing script for visual HTML dashboards
 
-**3. Install Playwright browsers**
-```bash
-npx playwright install
-```
+package.json: Framework dependencies and core npm script shortcuts
 
----
+features/
+--- dropdown.feature
+--- radio-checkbox.feature
 
-## ▶️ Running Tests
+step-definitions/
+--- common-steps.js
+--- radio-checkbox-steps.js
 
-**Run all scenarios:**
-```bash
-npm test
-```
+utils/
+--- hooks.js (Global execution lifecycle control)
+--- logger.js (Winston logging service instance)
+--- screenshotHelper.js (Visual capture pipeline for runtime failures)
 
-**Run by tag:**
-```bash
-npx cucumber-js --tags "@input"
-npx cucumber-js --tags "@dropdown"
-npx cucumber-js --tags "@radiobutton"
-```
+CORE INFRASTRUCTURE FEATURES
+On-Failure Screenshot Pipeline (AfterStep Hook)
 
-**Run with HTML report:**
-```bash
-npm run test:report
-```
+Precision Tracking: Instantly snapshots the browser view state at the exact moment a step throws an error.
 
----
+Report Embedding: Automatically encodes binary viewport arrays directly to the local JSON schema, nesting the visual proof right inside the failing Gherkin step block on the HTML dashboard.
 
-## 📊 Reports
+Asynchronous Enterprise Logging (Winston Engine)
 
-After every run an HTML report is auto-generated at:
-```
-reports/cucumber-report.html
-```
-Open it in any browser to view results.
+System Timestamps: High-fidelity microsecond tracking formatted as [YYYY-MM-DD HH:mm:ss].
 
-**[Ganesh Rasal]**
-Follow my daily Playwright vs Selenium series on LinkedIn → [www.linkedin.com/in/ganesh-rasal-0b1b4319a]
+Severity Thresholding: Configured with a runtime barrier level (level: 'info'). It manages internal pipeline output verbosity automatically, tracking structural operational data (logger.info) and cascading system errors (logger.error) seamlessly across environments.
+
+SETUP AND INSTALLATION
+Clone the repository:
+git clone https://github.com/GaneshRasal/Playwright-UI-Automation.git
+
+Go into the project directory:
+cd Playwright-UI-Automation
+
+Install dependencies:
+#npm install
+
+Install managed Playwright browser binaries:
+#npx playwright install
+
+TEST EXECUTION ORCHESTRATION
+Run the complete automated test suite:
+#npm test
+
+Isolate specific feature targets via Cucumber Tags:
+#npx cucumber-js --tags "@input"
+#npx cucumber-js --tags "@dropdown"
+#npx cucumber-js --tags "@radio-checkbox"
+
+Execute and synthesize visual HTML Dashboards:
+#npm run test:report
+
+EVALUATION REPORTS
+Upon completing a test run utilizing the reporting pipeline, a styled interactive file is automatically populated at:
+
+reports/html-report/index.html
+
+Open this index path inside any modern web browser to view comprehensive failure logs, step analytics, and inline error screenshots.
+
+AUTHOR & SERIES
+Ganesh Rasal
+
+Engage with my active, hands-on automation journey! Follow my daily Playwright vs. Selenium deep-dives on LinkedIn:
+👉 https://www.linkedin.com/in/ganesh-rasal-0b1b4319a
