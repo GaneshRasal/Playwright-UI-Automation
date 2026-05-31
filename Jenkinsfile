@@ -25,14 +25,5 @@ pipeline{
         always {
          bat "npm run test"
         }
-
-        publishHTML([
-            allowMissing: false,
-            alwaysLinkToLastBuild: true,
-            keepAll: true,
-            reportDir: 'reports',
-            reportFiles: 'cucumber-report.html',
-            reportName: 'Cucumber Report'
-        ])
     }
 }
