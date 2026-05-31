@@ -7,13 +7,13 @@ pipeline{
 
     stages{
         stage('Checkout Code') {
-            step{
+            steps{
                checkout scm
             }
         }
 
         stage('Install Dependencies') {
-            step{
+            steps{
                sh 'npm install'
                 sh 'npx playwright install --with-deps'
             }
