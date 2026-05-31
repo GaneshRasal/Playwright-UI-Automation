@@ -23,7 +23,7 @@ pipeline{
 
     post {
         always {
-         bat "npm run test"
+         bat "npm run report"
         }
     }
 }
