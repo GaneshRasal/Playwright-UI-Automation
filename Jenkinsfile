@@ -14,15 +14,15 @@ pipeline{
 
         stage('Install Dependencies') {
             steps{
-               sh 'npm install'
-                sh 'npx playwright install --with-deps'
+               bat 'npm install'
+                bat 'npx playwright install --with-deps'
             }
         }
         stage('Run Tagged Tests') {
             steps {
                 // IMPORTANT: You must use double quotes (" ") here in Groovy 
                 // so that the ${params.TAG_NAME} variable injects correctly!
-                sh "npm run test \"${params.s}\""
+                bat "npm run test \"${params.s}\""
             }
         }
     }
