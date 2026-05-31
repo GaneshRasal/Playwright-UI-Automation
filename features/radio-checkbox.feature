@@ -9,7 +9,7 @@ Feature: Radio Button and Checkbox Interactions
 @test1
   Scenario: Select a single radio button
     When I select the "radio1" radio button
-    Then the "radio111" radio button should be checked
+    Then the "radio1" radio button should be checked
     And the "radio2" radio button should not be checked
 
   Scenario: Change radio button selection (State Override)
