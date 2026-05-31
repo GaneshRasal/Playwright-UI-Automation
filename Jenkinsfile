@@ -24,6 +24,18 @@ pipeline{
     post {
         always {
          bat "npm run report"
+
+         script {
+            publishHTML(target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'reports/html-report',
+                reportFiles: 'index.html',
+                reportName: 'Cucumber HTML Report'
+            ])
+        }
+        
         }
     }
 }
