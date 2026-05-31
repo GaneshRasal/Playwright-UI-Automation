@@ -23,7 +23,16 @@ pipeline{
 
     post {
         always {
-            archiveArtifacts artifacts: 'reports/*.json', allowEmptyArchive: true
+         bat "npm run test"
         }
+
+        publishHTML([
+            allowMissing: false,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: 'reports',
+            reportFiles: 'cucumber-report.html',
+            reportName: 'Cucumber Report'
+        ])
     }
 }
