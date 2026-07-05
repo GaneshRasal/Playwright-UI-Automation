@@ -1,4 +1,4 @@
-@iframe
+@iframe @ui
 Feature: Iframe Handling
 Background:
     Given I open the browser and go to 'https://rahulshettyacademy.com/AutomationPractice/'

@@ -1,4 +1,4 @@
-@alert
+@alert @ui
 Feature: Working with browser dialogs
 
     Background:

@@ -1,4 +1,4 @@
-@multiwindow
+@multiwindow @ui
 Feature: Multi Window Handling
    
   Scenario: User opens a new window and verifies its content
