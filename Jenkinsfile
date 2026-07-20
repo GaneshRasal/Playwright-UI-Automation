@@ -1,41 +1,43 @@
-pipeline{
+pipeline {
     agent any
 
-    parameters{
-       string(name: 'TAG_NAME', defaultValue:'@ui', description: 'Enter the tag to run') 
+    parameters {
+        string(name: 'TAG_NAME', defaultValue: '@ui', description: 'Enter the tag to run')
     }
 
-    stages{
+    stages {
         stage('Checkout Code') {
-            steps{
-               checkout scm
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm ci'
             }
         }
 
         stage('Run Tagged Tests') {
             steps {
-                // IMPORTANT: You must use double quotes (" ") here in Groovy 
-                // so that the ${params.TAG_NAME} variable injects correctly!
                 bat "npm run test -- --tags ${params.TAG_NAME}"
             }
         }
     }
 
-    post {
-        always {
-         bat "npm run report"
+   post {
+    always {
+        withCredentials([string(credentialsId: 'groq-api-key', variable: 'GROQ_API_KEY')]) {
+            bat "npm run report"
+        }
 
-         script {
-            publishHTML(target: [
-                allowMissing: false,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'reports/html-report',
-                reportFiles: 'index.html',
-                reportName: 'Cucumber HTML Report'
-            ])
-        }
-        
-        }
+        publishHTML(target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: 'reports/html-report',
+            reportFiles: 'index.html',
+            reportName: 'Cucumber HTML Report'
+        ])
     }
 }
