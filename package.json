@@ -7,17 +7,21 @@
     "test:regression": "cucumber-js --tags \"@regression\"",
     "test:parallel": "cucumber-js --parallel 2",
     "test:headed": "cucumber-js --world-parameters '{\"headless\": false}'",
-    "test": "cucumber-js --format summary --format json:reports/cucumber_report.json --tags",
+    "test": "cucumber-js --format summary --format json:reports/cucumber_report.json",
     "report": "node generate-report.js",
     "test:report": "npm run test & npm run report"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^12.8.2",
-    "cucumber-html-reporter": "^6.0.0",
-    "multiple-cucumber-html-reporter": "^3.10.0"
+    "cucumber-html-reporter": "^5.0.2"
   },
   "dependencies": {
+    "@google/genai": "^2.12.0",
+    "@google/generative-ai": "^0.24.1",
     "@playwright/test": "^1.59.1",
+    "dotenv": "^17.4.2",
+    "groq-sdk": "^1.3.0",
+    "openai": "^6.48.0",
     "winston": "^3.19.0"
   }
 }
