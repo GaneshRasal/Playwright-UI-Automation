@@ -29,9 +29,7 @@ pipeline {
 
    post {
     always {
-        withCredentials([string(credentialsId: 'groq-api-key', variable: 'GROQ_API_KEY')]) {
             bat "npm run report"
-        }
 
         publishHTML(target: [
             allowMissing: false,
