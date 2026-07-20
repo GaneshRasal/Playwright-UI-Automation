@@ -1,6 +1,6 @@
 import { When, Then } from '@cucumber/cucumber';
 import assert from 'assert';
-import { DialogUtils } from '../../utils/dialog-utils.js';
+import { DialogUtils } from '../utils/dailog-utils.js';
 
 When('I accept the JavaScript alert', async function () {
 
