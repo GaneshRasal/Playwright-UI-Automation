@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        GROQ_API_KEY = credentials('groq-api-key')
+    }
     parameters {
         string(name: 'TAG_NAME', defaultValue: '@ui', description: 'Enter the tag to run')
     }
