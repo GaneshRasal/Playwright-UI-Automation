@@ -1,5 +1,8 @@
 // 1. Use 'import' instead of 'require'
-import report from 'multiple-cucumber-html-reporter';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const report = require('multiple-cucumber-html-reporter');
 
 // 2. Call it directly (Node will handle the CommonJS interop)
 report.generate({
