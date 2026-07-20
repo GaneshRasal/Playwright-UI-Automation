@@ -16,7 +16,7 @@ pipeline{
             steps {
                 // IMPORTANT: You must use double quotes (" ") here in Groovy 
                 // so that the ${params.TAG_NAME} variable injects correctly!
-                bat "npm run test -- ${params.TAG_NAME}"
+                bat "npm run test -- --tags ${params.TAG_NAME}"
             }
         }
     }
