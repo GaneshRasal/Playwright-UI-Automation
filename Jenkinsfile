@@ -40,4 +40,5 @@ pipeline {
             reportName: 'Cucumber HTML Report'
         ])
     }
+   }
 }
