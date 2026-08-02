@@ -66,6 +66,7 @@ Run the complete automated test suite:
 #npm test
 
 Isolate specific feature targets via Cucumber Tags:
+npm run test -- --tags "@run-ai2"
 #npx cucumber-js --tags "@input"
 #npx cucumber-js --tags "@dropdown"
 #npx cucumber-js --tags "@radio-checkbox"

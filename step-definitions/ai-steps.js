@@ -1,31 +1,58 @@
-import { Given, When } from '@cucumber/cucumber';
-import { getElementIndex } from '../utils/ai-helper.js';
+import { Given, When, Then } from "@cucumber/cucumber";
+import { Executor } from "../services/executor.js";
+import { Assertion } from "../services/assertions.js";
+import { AIPlanner } from "../services/ai-planner.js";
+import { CacheService } from "../services/cache-service.js";
 
-Given('I navigate to the practice site', async function () {
-  await this.page.goto('https://practice.expandtesting.com/inputs');
-});
+Given(
+    "I open {string}",
+    async function (url) {
 
-When('I ask AI to {string}', async function (action) {
+        await this.page.goto(url);
 
-  const index = await getElementIndex(this.page, action);
+        CacheService.invalidate(this.page);
 
-  const locator = this.page.locator(
-    'input, button, select, textarea, a, label, [role="button"]'
-  ).nth(index);
-
-  if (action.toLowerCase().startsWith('type')) {
-
-    const match = action.match(/type\s+(.+?)\s+into/i);
-
-    if (!match) {
-      throw new Error(`Could not extract value from: ${action}`);
     }
+);
 
-    await locator.fill(match[1]);
+When(
+    "AI executes",
+    async function (docString) {
 
-  } else {
+        const plan = await AIPlanner.createExecutionPlan(
+            this.page,
+            docString
+        );
 
-    await locator.click();
+        const actions = plan.filter(
+            step => !step.action.startsWith("assert")
+        );
 
-  }
-});
+        await Executor.execute(
+            this.page,
+            actions
+        );
+
+    }
+);
+
+Then(
+    "AI verifies",
+    async function (docString) {
+
+        const plan = await AIPlanner.createExecutionPlan(
+            this.page,
+            docString
+        );
+
+        const assertions = plan.filter(
+            step => step.action.startsWith("assert")
+        );
+
+        await Assertion.execute(
+            this.page,
+            assertions
+        );
+
+    }
+);
